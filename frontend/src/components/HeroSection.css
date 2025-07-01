@@ -1,0 +1,57 @@
+.hero-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 24px;
+}
+
+.hero-content {
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Children start transparent and slightly down */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* When the container is visible, children animate in */
+.hero-section-container.is-visible .hero-content > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.hero-cta-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.hero-cta-button:hover {
+  background-color: #555;
+} 
