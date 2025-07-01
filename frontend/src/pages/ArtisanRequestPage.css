@@ -1,0 +1,127 @@
+.artisan-request-page {
+  background-color: #f9f9f9;
+  min-height: calc(100vh - 72px);
+  padding: 48px 24px;
+}
+
+.arp-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.arp-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.arp-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.arp-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.artisan-request-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.artisan-request-form button {
+  width: 100%;
+  padding: 14px;
+  background-color: #5D4037;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.artisan-request-form button:hover {
+  background-color: #4E342E;
+}
+
+.artisan-request-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.arp-loading {
+  text-align: center;
+  padding: 48px;
+  font-size: 1.2rem;
+}
+
+/* Status Cards */
+.status-card {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.status-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.status-pending {
+  background-color: #fffbeb;
+  border: 1px solid #fdd835;
+  color: #7f6d00;
+}
+.status-approved {
+  background-color: #e8f5e9;
+  border: 1px solid #66bb6a;
+  color: #1b5e20;
+}
+.status-rejected {
+  background-color: #ffebee;
+  border: 1px solid #ef5350;
+  color: #c62828;
+}
+
+.request-submitted-card {
+  text-align: center;
+  padding: 48px 24px;
+}
+.request-submitted-card h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.request-submitted-card p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+} 

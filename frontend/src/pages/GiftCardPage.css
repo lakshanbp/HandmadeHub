@@ -1,0 +1,147 @@
+.gift-card-page-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 48px auto;
+  gap: 64px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.gift-card-image-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-card-image-wrapper {
+  width: 400px;
+  height: 250px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.gift-card-image-display {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  background-color: #f0f0f0; /* Fallback color */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gift-card-form-column {
+  flex: 1;
+}
+
+.gift-card-form-column h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.gift-card-form-column .price {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.gift-card-form-column .description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.amount-selector, .recipient-selector {
+  display: flex;
+  gap: 12px;
+}
+
+.amount-selector button, .recipient-selector button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.amount-selector button.active, .recipient-selector button.active {
+  background-color: #e0e0e0;
+  border-color: #a0a0a0;
+  color: #333;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.quantity-selector button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #f9f9f9;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.quantity-selector input {
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+input[type="email"], input[type="text"], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.buy-now-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy-now-button:hover {
+  background-color: #444;
+} 

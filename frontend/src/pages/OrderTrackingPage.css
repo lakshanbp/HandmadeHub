@@ -1,0 +1,372 @@
+.order-tracking-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  min-height: 100vh;
+  background: #fcfcfa;
+}
+
+.order-tracking-header {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.order-tracking-header h1 {
+  font-size: 2.3rem;
+  color: #222;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.order-tracking-header p {
+  color: #7c6f57;
+  font-size: 1.1rem;
+}
+
+.order-tracking-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  padding-right: 2.7rem;
+  border: 2px solid #e2c98c;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  background-color: #fffbe9;
+  color: #222;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(191, 167, 106, 0.06);
+  line-height: 1.5;
+  height: 44px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #bfa76a;
+  box-shadow: 0 0 0 2px #f3e7c9;
+}
+
+.search-icon {
+  position: absolute;
+  left: auto;
+  right: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bfa76a;
+  font-size: 1.15rem;
+  pointer-events: none;
+  height: 1em;
+  width: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-filter {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2c98c;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  background-color: #fffbe9;
+  color: #222;
+  cursor: pointer;
+  min-width: 150px;
+  box-shadow: 0 1px 4px rgba(191, 167, 106, 0.06);
+  margin-left: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.status-filter:focus {
+  outline: none;
+  border-color: #bfa76a;
+  box-shadow: 0 0 0 2px #f3e7c9;
+}
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 2rem;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(191, 167, 106, 0.10);
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: 1.5px solid #f3e7c9;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+}
+
+.order-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 24px rgba(191, 167, 106, 0.16);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  border-bottom: 1px solid #f3e7c9;
+}
+
+.order-info h3 {
+  font-size: 1.15rem;
+  color: #222;
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+}
+
+.order-date {
+  color: #bfa76a;
+  font-size: 0.95rem;
+}
+
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+}
+
+.status-icon.delivered {
+  color: #10b981;
+}
+
+.status-icon.cancelled {
+  color: #ef4444;
+}
+
+.status-icon.shipped {
+  color: #3b82f6;
+}
+
+.status-icon.confirmed {
+  color: #f59e0b;
+}
+
+.status-icon.pending {
+  color: #bfa76a;
+}
+
+.status-text {
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+}
+
+.order-items {
+  padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+}
+
+.order-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #f3e7c9;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.item-image {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  flex-shrink: 0;
+  border: 1.5px solid #f3e7c9;
+}
+
+.item-details h4 {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 0.18rem;
+  font-weight: 700;
+}
+
+.item-details p {
+  color: #7c6f57;
+  font-size: 0.93rem;
+  margin-bottom: 0.18rem;
+}
+
+.item-price {
+  color: #10b981 !important;
+  font-weight: 700;
+}
+
+.order-footer {
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  background-color: #fffbe9;
+  border-top: 1px solid #f3e7c9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.order-total {
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.tracking-info {
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1.5px solid #f3e7c9;
+}
+
+.tracking-info p {
+  margin-bottom: 0.3rem;
+  font-size: 0.93rem;
+  color: #7c6f57;
+}
+
+.tracking-link {
+  display: inline-block;
+  background-color: #bfa76a;
+  color: #222;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+.tracking-link:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+.view-details-btn {
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(191, 167, 106, 0.08);
+  transition: background 0.2s;
+}
+
+.view-details-btn:hover {
+  background-color: #bfa76a;
+  color: #222;
+}
+
+.no-orders {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #fffbe9;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(191, 167, 106, 0.08);
+}
+
+.no-orders-icon {
+  font-size: 4rem;
+  color: #e2c98c;
+  margin-bottom: 1rem;
+}
+
+.no-orders h3 {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.no-orders p {
+  color: #7c6f57;
+  margin-bottom: 2rem;
+}
+
+.shop-now-btn {
+  background-color: #222;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(191, 167, 106, 0.08);
+  transition: background 0.2s;
+}
+
+.shop-now-btn:hover {
+  background-color: #bfa76a;
+  color: #222;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.125rem;
+  color: #bfa76a;
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .order-tracking-container {
+    padding: 1rem 0.2rem;
+  }
+  .order-tracking-header h1 {
+    font-size: 1.5rem;
+  }
+  .orders-grid {
+    gap: 1rem;
+  }
+  .order-card {
+    margin: 0 0.2rem;
+  }
+  .order-header,
+  .order-items,
+  .order-footer {
+    padding: 1rem;
+  }
+} 

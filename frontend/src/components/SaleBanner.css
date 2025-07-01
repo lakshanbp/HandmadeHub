@@ -1,0 +1,68 @@
+.sale-banner-bg {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  /* background will be set via inline style in the component */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sale-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sale-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+.sale-banner-offer {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+}
+
+.sale-banner-sale-row {
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.sale-banner-sale-animate {
+  display: inline-block;
+  font-size: 4vw;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+  animation: sale-scroll 8s linear infinite;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+@keyframes sale-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 600px) {
+  .sale-banner-offer {
+    font-size: 1.2rem;
+  }
+  .sale-banner-sale-animate {
+    font-size: 2rem;
+  }
+  .sale-banner-bg {
+    min-height: 180px;
+  }
+} 
