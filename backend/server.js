@@ -11,8 +11,24 @@ dotenv.config();
 // Initialize app
 const app = express();
 
+// CORS configuration for Azure deployment
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // Local development
+    'https://handmadehub.azurewebsites.net', // Azure frontend (if deployed)
+    'https://handmadehub-cdbahwd0amf2djdc.canadacentral-01.azurewebsites.net', // Your Azure backend
+    'https://handmadehub-frontend.azurewebsites.net', // Alternative Azure frontend URL
+    'https://handmadehub.vercel.app', // If using Vercel
+    'https://handmadehub.netlify.app', // If using Netlify
+    process.env.FRONTEND_URL // Environment variable for frontend URL
+  ].filter(Boolean), // Remove any undefined values
+  credentials: true, // Allow cookies and authentication headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Ensure uploads directory exists
