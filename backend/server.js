@@ -1,4 +1,11 @@
 console.log('Handmade Hub backend starting...');
+process.on('uncaughtException', err => {
+  console.error('Uncaught Exception:', err);
+});
+process.on('unhandledRejection', err => {
+  console.error('Unhandled Rejection:', err);
+});
+
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -15,6 +22,15 @@ const app = express();
 
 // Security headers
 app.use(helmet());
+
+// Log request origin for CORS debugging
+app.use((req, res, next) => {
+  console.log('Request Origin:', req.headers.origin);
+  next();
+});
+
+// TEMP: Allow all origins for CORS debugging
+app.use(cors());
 
 // CORS configuration for Azure deployment
 const corsOptions = {
