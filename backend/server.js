@@ -1,3 +1,4 @@
+console.log('Handmade Hub backend starting...');
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
