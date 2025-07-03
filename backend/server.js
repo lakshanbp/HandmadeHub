@@ -29,27 +29,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// TEMP: Allow all origins for CORS debugging
-app.use(cors());
-
-// CORS configuration for Azure deployment
-const corsOptions = {
+// Use only the correct CORS configuration
+app.use(cors({
   origin: [
-    'http://localhost:3000', // Local development
-    'https://witty-sand-0e78f971e.2.azurestaticapps.net', // Azure frontend (no trailing slash!)
-    'https://handmadehub-cdbahwd0amf2djdc.canadacentral-01.azurewebsites.net', // Your Azure backend
-    'https://handmadehub-frontend.azurewebsites.net', // Alternative Azure frontend URL
-    'https://handmadehub.vercel.app', // If using Vercel
-    'https://handmadehub.netlify.app', // If using Netlify
-    process.env.FRONTEND_URL // Environment variable for frontend URL
-  ].filter(Boolean), // Remove any undefined values
-  credentials: true, // Allow cookies and authentication headers
+    'http://localhost:3000',
+    'https://witty-sand-0e78f971e.2.azurestaticapps.net',
+    process.env.FRONTEND_URL
+  ].filter(Boolean),
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-};
+}));
 
 // Middleware
-app.use(cors(corsOptions));
 app.use(express.json());
 
 // Ensure uploads directory exists
