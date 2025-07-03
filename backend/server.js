@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const helmet = require('helmet'); // Security middleware
 
 // Load environment variables
 dotenv.config();
@@ -11,11 +12,14 @@ dotenv.config();
 // Initialize app
 const app = express();
 
+// Security headers
+app.use(helmet());
+
 // CORS configuration for Azure deployment
 const corsOptions = {
   origin: [
     'http://localhost:3000', // Local development
-    'https://handmadehub.azurewebsites.net', // Azure frontend (if deployed)
+    'https://witty-sand-0e78f971e.2.azurestaticapps.net', // Azure frontend (no trailing slash!)
     'https://handmadehub-cdbahwd0amf2djdc.canadacentral-01.azurewebsites.net', // Your Azure backend
     'https://handmadehub-frontend.azurewebsites.net', // Alternative Azure frontend URL
     'https://handmadehub.vercel.app', // If using Vercel
@@ -40,8 +44,10 @@ if (!fs.existsSync(uploadsDir)) {
 // Serve static files from the 'uploads' directory
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
-// Connect to MongoDB
+// Connect to MongoDB (with recommended options)
 mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 }).then(() => {
   console.log('MongoDB connected');
 }).catch(err => {
