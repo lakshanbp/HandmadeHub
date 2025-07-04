@@ -21,7 +21,11 @@ const ProductListSection: React.FC = () => {
   useEffect(() => {
     fetchProducts()
       .then(res => {
-        setProducts(res.data.slice(0, 4)); // Take first 4 for the main display
+        if (Array.isArray(res.data)) {
+          setProducts(res.data.slice(0, 4)); // Take first 4 for the main display
+        } else {
+          setError('Unexpected response from server.');
+        }
         setLoading(false);
       })
       .catch(() => {
@@ -32,6 +36,7 @@ const ProductListSection: React.FC = () => {
 
   if (loading) return <div className="product-list-loading">Loading products...</div>;
   if (error) return <div className="product-list-error">❗ {error}</div>;
+  if (!Array.isArray(products)) return <div className="product-list-error">❗ Unexpected data format.</div>;
 
   return (
     <section ref={sectionRef} className="product-list-container">
@@ -62,4 +67,4 @@ const ProductListSection: React.FC = () => {
   );
 };
 
-export default ProductListSection; 
+export default ProductListSection;
