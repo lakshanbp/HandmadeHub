@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'backend/**'
   workflow_dispatch:
 
 jobs:
@@ -13,28 +15,30 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22.x'
+          node-version: '18.x'  # Use '22.x' only if your backend truly needs latest features
 
-      - name: npm install and build
+      - name: Install dependencies and optional build
+        working-directory: backend
         run: |
           npm install
           npm run build --if-present
-        working-directory: backend
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-        working-directory: backend
+      - name: Archive backend build
+        run: |
+          cd backend
+          zip -r ../backend-release.zip ./
 
-      - name: Upload artifact for deployment job
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: backend/release.zip
+          name: backend-artifact
+          path: backend-release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,15 +48,15 @@ jobs:
       contents: read
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: backend-artifact
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      - name: Unzip artifact
+        run: unzip backend-release.zip -d backend
 
-      - name: Login to Azure
+      - name: Azure Login
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5C2301FCE9654EA4A87F373BF044D154 }}
@@ -62,6 +66,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'handmadehubbackend'
+          app-name: 'handmadehubbackend'         # Your Azure App Service name
           slot-name: 'Production'
-          package: .
+          package: backend
